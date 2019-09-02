@@ -1,0 +1,51 @@
+﻿@model Librarymanagement.Models.librarymodel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>ADD A NEW BOOK</h2>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" asp-controller="books">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="BookName" class="control-label"></label>
+                <input asp-for="BookName" class="form-control" />
+                <span asp-validation-for="BookName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BookPublishedYear" class="control-label"></label>
+                <input type="number" asp-for="BookPublishedYear" class="form-control" />
+                <span asp-validation-for="BookPublishedYear" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BookAuthor" class="control-label"></label>
+                <input asp-for="BookAuthor" class="form-control" />
+                <span asp-validation-for="BookAuthor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BookCategory" class="control-label"></label>
+                <input asp-for="BookCategory" class="form-control" />
+                <span asp-validation-for="BookCategory" class="text-danger"></span>
+            </div>
+            <div>
+                @if (ViewBag.Bookexists != null)
+                {
+                    <label>@ViewBag.Bookexists</label>
+                }
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="BOOKS">BACK TO BOOKS</a>
+</div>
+

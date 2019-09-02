@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Librarymanagement.Models.librarymodel>
+@{
+    ViewData["Title"] = "BOOKS";
+}
+
+<h2>BOOKS</h2>
+@Html.ActionLink("Create", "Create", "BOOKS")
+<a asp-action="../Home/Admin">Back to home</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BookName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookPublishedYear)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookAuthor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookCategory)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookPublishedYear)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookAuthor)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.BookCategory)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = item.BookId })
+                    @Html.ActionLink("Edit", "Edit", new { id = item.BookId })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.BookId })
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

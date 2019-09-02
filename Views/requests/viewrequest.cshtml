@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Librarymanagement.Models.Request>
+@{
+    ViewData["Title"] = "Viewrequests";
+}
+
+<h2>Viewrequests</h2>
+<a asp-action="../Home/Admin">Back</a>
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.status)
+                </td>
+
+
+
+
+                @if (string.IsNullOrEmpty(item.status))
+                {
+                    <td>
+                        @Html.ActionLink("Approve", "ApproveRequest", new { id = item.RequestId }) |
+                        @Html.ActionLink("Reject", "RejectRequest", new { id = item.RequestId })
+                    </td>
+                }
+                else
+                {
+                    <td></td>
+                }
+
+            </tr>
+
+        }
+    </tbody>
+</table>
+
+
+

@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Librarymanagement.Models.suggestion>
+
+@{
+    ViewData["Title"] = "viewsuggestion";
+}
+
+<h2>View Suggestions</h2>
+<a asp-action="../Home/Admin">Back to Home</a>
+
+
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.BookName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookPublishedYear)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookAuthor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookCategory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.status)
+            </th>
+
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.BookName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookPublishedYear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookAuthor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookCategory)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.status)
+            </td>
+
+            @if (string.IsNullOrEmpty(item.status))
+            {
+                <td>
+                    @Html.ActionLink("Approve", "Approve", new { id = item.SuggestionId }) |
+                    @Html.ActionLink("Reject", "Reject", new { id = item.SuggestionId })
+                </td>
+            }
+            else
+            {
+                <td></td>
+            }
+
+        </tr>
+            
+        }
+    </tbody>
+</table>
+
+

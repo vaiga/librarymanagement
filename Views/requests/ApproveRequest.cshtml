@@ -1,0 +1,39 @@
+﻿@model Librarymanagement.Models.Request
+
+@{
+    ViewData["Title"] = "Approve Request";
+}
+
+<h2>approve</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="ApproveRequest">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="RequestId" class="control-label"></label>
+                <input asp-for="RequestId" class="form-control" />
+                <span asp-validation-for="RequestId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @Html.HiddenFor(model => model.BookId)
+
+            </div>
+            <div class="form-group">
+                <label asp-for="BookName" class="control-label"></label>
+                <input asp-for="BookName" class="form-control" />
+                <span asp-validation-for="BookName" class="text-danger"></span>
+            </div>
+            
+
+            <div class="form-group">
+                <input type="submit" value="Approve" class="btn btn-default" />
+                <a asp-action="viewrequest">Back</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+

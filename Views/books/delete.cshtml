@@ -1,0 +1,55 @@
+﻿@model Librarymanagement.Models.librarymodel
+
+@{
+    ViewData["Title"] = "View";
+}
+
+<h2>DELETE</h2>
+
+
+<div>
+    
+    <hr />
+    <form asp-action="Delete">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.BookId)
+                @Html.HiddenFor(model => model.BookId)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.BookId)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.BookName)
+                @Html.HiddenFor(model => model.BookName)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.BookName)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.BookPublishedYear)
+                @Html.HiddenFor(model => model.BookPublishedYear)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.BookPublishedYear)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.BookAuthor)
+                @Html.HiddenFor(model => model.BookAuthor)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.BookAuthor)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.BookCategory)
+                @Html.HiddenFor(model => model.BookCategory)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.BookCategory)
+            </dd>
+        </dl>
+
+        <input type="submit" value="Delete"  class="btn btn-default" /> |
+        <a asp-action="BOOKS">BACK TO BOOKS</a>
+    </form>
+</div>

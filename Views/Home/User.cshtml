@@ -1,0 +1,17 @@
+﻿@model int  
+@{
+    ViewData["Title"] = "User";
+}
+
+<h2>WELCOME USER</h2>
+<thead>
+    <tr>
+        @Html.ActionLink("SEARCH", "search", "books")
+        <br>
+        @Html.ActionLink("SUGGEST", "suggest", "suggestions",new { UserId = Model })
+        <br>
+        @Html.ActionLink("REQUEST", "request", "Requests",new { UserId = Model })
+        <th></th>
+    </tr>
+</thead>
+

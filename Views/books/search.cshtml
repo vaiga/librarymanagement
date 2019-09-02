@@ -1,0 +1,83 @@
+﻿@model Librarymanagement.Models.librarymodel
+
+@{
+    ViewData["Title"] = "search";
+}
+
+<h2>SEARCH</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="search">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="BookName" class="control-label"></label>
+                <input asp-for="BookName" class="form-control" />
+                <span asp-validation-for="BookName" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" value="search" class="btn btn-default" />
+            </div>
+        </form>
+            @if (Model != null)
+            {
+                @if (Model.BookId == 0)
+                {
+                    <h2>Book not found in library</h2>
+                }
+                else
+                {
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.BookName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.BookAuthor)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.BookPublishedYear)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.BookCategory)
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => modelItem.BookName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => modelItem.BookAuthor)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => modelItem.BookPublishedYear)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => modelItem.BookCategory)
+                                </td>
+
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+                }
+            }
+    </div>
+</div>
+
+<div>
+    <a asp-action="../Home/User">Back to User</a>
+</div>
+
+
+
+
